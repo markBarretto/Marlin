@@ -106,16 +106,16 @@
 // NOTE NB all values for DELTA_* values MOUST be floating point, so always have a decimal point in them
 
 // Center-to-center distance of the holes in the diagonal push rods.
-#define DELTA_DIAGONAL_ROD 215.8//216.2376237625544//214.117647059//205.882352941 //210 // 153 // mm
+#define DELTA_DIAGONAL_ROD 218 + .5 ////214.117647059//205.882352941 //210 // 153 // mm
 
 // Horizontal offset from middle of printer to smooth rod center.
-#define DELTA_SMOOTH_ROD_OFFSET 161.9 //111.9 default 3dr // mm
+#define DELTA_SMOOTH_ROD_OFFSET 161.9 + 3 - .5 //111.9 default 3dr // mm
 
 // Horizontal offset of the universal joints on the end effector.
-#define DELTA_EFFECTOR_OFFSET 33.5 //kossel? //33.0 3dr // mm
+#define DELTA_EFFECTOR_OFFSET 30 //kossel? //33.0 3dr // mm
 
 // Horizontal offset of the universal joints on the carriages.
-#define DELTA_CARRIAGE_OFFSET 14.0 // mm
+#define DELTA_CARRIAGE_OFFSET 18.0 //14.0 3dr// mm
 
 // Effective horizontal distance bridged by diagonal push rods.
 #define DELTA_RADIUS (DELTA_SMOOTH_ROD_OFFSET-DELTA_EFFECTOR_OFFSET-DELTA_CARRIAGE_OFFSET)
@@ -149,7 +149,7 @@
 // 52 is 200k thermistor - ATC Semitec 204GT-2 (1k pullup)
 // 55 is 100k thermistor - ATC Semitec 104GT-2 (Used in ParCan & J-Head) (1k pullup)
 
-#define TEMP_SENSOR_0 5
+#define TEMP_SENSOR_0 1
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_BED 0
@@ -200,9 +200,9 @@
 
 // If you are using a preconfigured hotend then you can use one of the value sets by uncommenting it
 // Ultimaker
-    #define  DEFAULT_Kp 22.2
-    #define  DEFAULT_Ki 1.08
-    #define  DEFAULT_Kd 114
+    #define  DEFAULT_Kp 18.51 //22.2
+    #define  DEFAULT_Ki 1.11 //1.08
+    #define  DEFAULT_Kd 77.02 //114
 
 // Makergear
 //    #define  DEFAULT_Kp 7.0
@@ -410,7 +410,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 // For deltabots this means top and center of the cartesian print volume.
 #define MANUAL_X_HOME_POS 0
 #define MANUAL_Y_HOME_POS 0
-#define MANUAL_Z_HOME_POS 307.8 //439.2 // 437.8 round nozzle  //61.5 gap // For delta: Distance between nozzle and print surface after homing.
+#define MANUAL_Z_HOME_POS 317-(2.5+.2) //307.8 with cork_//439.2 // 437.8 round nozzle  //61.5 gap // For delta: Distance between nozzle and print surface after homing.
 
 //// MOVEMENT SETTINGS
 #define NUM_AXIS 4 // The axis order in all axis related arrays is X, Y, Z, E
@@ -420,7 +420,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 
 // default settings
 // delta speeds must be the same on xyz
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {100, 100, 100, 182.2}//106.8}//{55.5, 55.5, 55.5, 120}  // default steps per unit for Kossel (GT2, 20 tooth)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {100, 100, 100, 182.2}//200}//106.8}//{55.5, 55.5, 55.5, 120}  // default steps per unit for Kossel (GT2, 20 tooth)
 #define DEFAULT_MAX_FEEDRATE          {380, 380, 380, 29}    // (mm/sec)
 #define DEFAULT_MAX_ACCELERATION      {9000,9000,9000,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
 
